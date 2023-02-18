@@ -128,18 +128,54 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="PrintScreen.cpp" />
-    <ClCompile Include="sound1.cpp" />
+    <ClCompile Include="chatWithBarman.cpp" />
+    <ClCompile Include="endOfGame.cpp" />
+    <ClCompile Include="printMenu.cpp" />
+    <ClCompile Include="theGame.cpp" />
     <ClCompile Include="mainTavern.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PrintScreen.h" />
-    <ClInclude Include="sound1.h" />
+    <ClInclude Include="chatWithBarman.h" />
+    <ClInclude Include="endOfGame.h" />
+    <ClInclude Include="mainTavern.h" />
+    <ClInclude Include="miniaudio.h" />
+    <ClInclude Include="theGame.h" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="tavern_sounds\bar_long_friends.ogg">
-      <FileType>Document</FileType>
-    </Media>
+    <None Include="bar_long_between.ogg" />
+    <None Include="bar_long_kiss.ogg" />
+    <None Include="bar_long_legs.ogg" />
+    <None Include="bar_long_life.ogg" />
+    <None Include="bar_long_mind3.ogg" />
+    <None Include="bar_long_water.ogg" />
+    <None Include="bar_long_work.ogg" />
+    <None Include="bar_ok_launch.ogg" />
+    <None Include="bar_ok_one_more.ogg" />
+    <None Include="bar_ok_problem.ogg" />
+    <None Include="bar_ok_quality.ogg" />
+    <None Include="bar_ok_respect_me.ogg" />
+    <None Include="bar_ok_want_beer.ogg" />
+    <None Include="bar_ok_want_drink.ogg" />
+    <None Include="bar_ok_with_pleasure.ogg" />
+    <None Include="bar_ok_zasohnut.ogg" />
+    <None Include="chok.ogg" />
+    <None Include="ready_for_game.ogg" />
+    <None Include="tavern_sounds\bar_neg_fight.ogg" />
+    <None Include="tavern_sounds\bar_neg_lucky.ogg" />
+    <None Include="tavern_sounds\bar_neg_oh1.ogg" />
+    <None Include="tavern_sounds\bar_neg_oh2.ogg" />
+    <None Include="tavern_sounds\bar_neg_respect.ogg" />
+    <None Include="tavern_sounds\bar_neg_what_say.ogg" />
+    <None Include="wine1.ogg" />
+    <None Include="wine10.ogg" />
+    <None Include="wine10_2.ogg" />
+    <None Include="wine1_2.ogg" />
+    <None Include="wine2.ogg" />
+    <None Include="wine2_2.ogg" />
+    <None Include="wine3.ogg" />
+    <None Include="wine3_2.ogg" />
+    <None Include="wine5.ogg" />
+    <None Include="wine5_2.ogg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

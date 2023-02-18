@@ -18,22 +18,138 @@
     <ClCompile Include="mainTavern.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="sound1.cpp">
+    <ClCompile Include="theGame.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="PrintScreen.cpp">
+    <ClCompile Include="printMenu.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="chatWithBarman.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="endOfGame.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sound1.h">
+    <ClInclude Include="theGame.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="PrintScreen.h">
+    <ClInclude Include="chatWithBarman.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="mainTavern.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="endOfGame.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="miniaudio.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="tavern_sounds\bar_long_friends.ogg" />
+    <None Include="bar_ok_respect_me.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="chok.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="wine1.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="wine1_2.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="wine2.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="wine2_2.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="wine3.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="wine3_2.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="wine5.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="wine5_2.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="wine10.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="wine10_2.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="tavern_sounds\bar_neg_fight.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="tavern_sounds\bar_neg_lucky.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="tavern_sounds\bar_neg_oh1.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="tavern_sounds\bar_neg_oh2.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="tavern_sounds\bar_neg_respect.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="tavern_sounds\bar_neg_what_say.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_ok_launch.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_ok_one_more.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_ok_problem.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_ok_quality.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_ok_want_beer.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_ok_want_drink.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_ok_with_pleasure.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_ok_zasohnut.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_long_between.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_long_kiss.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_long_legs.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_long_life.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_long_mind3.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_long_water.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="bar_long_work.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="ready_for_game.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
 </Project>

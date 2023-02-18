@@ -1,11 +1,16 @@
 ﻿// Таверна "Бешений кабанчик". Игра на угадывание количества глотков от бармена.
 #include <iostream>
 #include <string>
-#include "sound1.h"
-#include "PrintScreen.h"
 #include <windows.h>
 #include <thread> //для доступа к текущему потоку
 #include <chrono> //для ожидания в секундах
+
+
+
+#include "theGame.h"
+#include "chatWithBarman.h"
+#include "mainTavern.h"
+#include "endOfGame.h"
 
 //сначала vorbis только дефайны
 #define STB_VORBIS_HEADER_ONLY
@@ -43,108 +48,112 @@ int main()
     setlocale(LC_ALL, "Russian"); //Корректное отображение Кириллицы
     system("chcp 1251");
 
-    int menuSelection = 0;
-    int numberOfSips = 0;
-    
-    
-    
-        std::cout << "Таверна бешеный кабанчик.Вы посмотрите на наше меню!" << std::endl;
-        
-        printMenu();
-        std::cin >> menuSelection;
-        std::cout << "Играет музыка..." << std::endl;
-        //playSound("bar_long_friends.ogg", NULL, SND_SYNC);
-        
+    //Попытка инициализации звука
+    if (!initSound())
+    {
+        return EXIT_FAILURE;
+    }
 
-        std::this_thread::sleep_for(std::chrono::seconds(5));
-        
+    int menuSelection = 0; // ds,jh gj vty.
+    int numberOfSips = 0; // количество глотков
+    bool startGame = false; //
+    bool notFirstGame = false; //не первый проход по меню
 
+
+    const int SoundsWineMassSize = 10; // музыка для игры
+    // музыка для игры
+    static const std::string SoundsWine[SoundsWineMassSize] = { "wine1.ogg", "wine1_2.ogg", "wine2.ogg", "wine2_2.ogg", "wine3.ogg" , "wine3_2.ogg", "wine5.ogg" , "wine5_2.ogg", "wine10.ogg" , "wine10_2.ogg" };
+    
+    const int SoundsBarNegMassSize = 6;
+    // музыка для выбора проиграл игру
+    static const std::string SoundsBarNeg[SoundsBarNegMassSize] = { "bar_neg_fight.ogg", "bar_neg_lucky.ogg", "bar_neg_oh1.ogg", "bar_neg_oh2.ogg", "bar_neg_respect.ogg" , "bar_neg_what_say.ogg" };
+    
+    const int SoundsBarOkMassSize = 9;
+    // музыка для выбора продолжить игру
+    static const std::string SoundsBarOk[SoundsBarOkMassSize] = { "bar_ok_launch.ogg", "bar_ok_one_more.ogg", "bar_ok_problem.ogg", "bar_ok_quality.ogg", "bar_ok_respect_me.ogg" , "bar_ok_want_beer.ogg", "bar_ok_want_drink.ogg" , "bar_ok_with_pleasure.ogg", "bar_ok_zasohnut.ogg" };
+
+    const int SoundsBarLongMassSize = 7;
+    // музыка для chatWithBarman
+    static const std::string SoundsBarLong[SoundsBarLongMassSize] = { "bar_long_between.ogg", "bar_long_kiss.ogg", "bar_long_legs.ogg", "bar_long_life.ogg", "bar_long_mind3.ogg" , "bar_long_water.ogg", "bar_long_work.ogg" };
+
+    srand(time(NULL)); //Итак, измените начальное значение для генератора случайных чисел (например, используйте текущее время в качестве начального условия для генератора случайных чисел).
+
+
+
+
+    std::cout << "Таверна бешеный кабанчик.Вы посмотрите на наше меню!" << std::endl;
+    for (int i = 1; i < 3; i++)
+    {
+        playSound("chok.ogg");
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    };
+    
+
+    do
+     {   
+        if (!notFirstGame)
+        {
+            playSound(SoundsBarLong[rand() % SoundsBarLongMassSize]);
+            std::this_thread::sleep_for(std::chrono::seconds(5));
+        };
+
+        menuFirstSelection(&menuSelection);
+    
         switch (menuSelection)
         {
-        case 1:
+        case static_cast <int> (MenuSelection::startTheGame):
         {
-            bool ggg = false;
-            int count = 0;
+            std::cout << "Таверна бешеный кабанчик. Игра начинается!" << std::endl;
+            playSound("ready_for_game.ogg");
+            std::this_thread::sleep_for(std::chrono::seconds(2));
+            
+            std::cout << "Угадай количество глотков" << std::endl;
+            
+            
+            std::string xxx = SoundsWine[rand() % SoundsWineMassSize];
 
-            do
-            {
-                if (count != 0)
-                {
-                    std::cout << "Таверна бешеный кабанчик.Вы посмотрите на наше меню!" << std::endl;
-                    printMenu();
-                    std::cin >> menuSelection;
-                }
+            std::cout << xxx << std::endl;
 
-                std::cout << "Игра началась..." << std::endl;
-                std::cout << "Играет музыка..." << std::endl;
-                
-                playSound("bar_long_friends.ogg");
-
-                //ожидание для того чтобы звук успел отыграть
-                std::this_thread::sleep_for(std::chrono::seconds(5));
-
-                std::cout << "Сколько глотков я налил?" << std::endl;
-                std::cout << '>';
-                std::cin >> numberOfSips;
-
-                if (numberOfSips == 1)
-                {
-                    std::cout << "Угадал..." << std::endl;
-                }
-                else 
-                { 
-                    std::cout << "НЕ Угадал..." << std::endl;
-                }
-
-                count++;
-                bool ggg = endOfGame();
-
-
-
-
-            } while (!ggg);
-
-            break;
-        }
-
-        case 2:
-        {
-            std::cout << "В нашей таверне Вы можете не только приятно провести время за свои деньги, но и немного выпить за счёт заведения!" << std::endl;
-            std::cout << "Я вижу Вас насквозь - у Вас в кармане пусто, но наш бешеный кабанчик благосклонен к специалистам по выпивке!" << std::endl;
-            std::cout << "Чтобы немного выпить за счёт заведения, ";
-            std::cout << "Вы должны с завязанными глазами угадать количество глотков выпивки, которую я накапаю в стакан." << std::endl;
-            std::cout << "Не бойся! Буду наливать не больше десяти глотков." << std::endl;
-            std::cout << "На то чтобы угадать количество глотков у Вас будет только три секунды." << std::endl;
-            std::cout << "Если не угадаешь, или истекут три секунды - получишь такую оплеуху от меня, что звездочки будут плясать джигу на твоём лбу!" << std::endl;
-
-            std::cout << "1. Отодвинуться" << std::endl;
-            std::cout << '>';
             
 
+            playSound(xxx);
+
+            //std::cout << SoundsWine[rand() % SoundsWineMassSize] << std::endl;
 
 
+            //if (rand() % SoundsBarLongMassSize == SoundsBarLong[0])
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+
+            //0x00007ff69e9d888a {tavern.exe!rand}
+
+
+            //theGame(&numberOfSips);
+
+            
+            std::cout << "Таверна бешеный кабанчик. Игра закончилась!" << std::endl;
             break;
-
         }
-
+        case static_cast <int> (MenuSelection::chatWithBarman):
+        {
+            playSound(SoundsBarLong[rand() % SoundsBarLongMassSize]);
+            chatWithBarman(&menuSelection);
+            std::cout << std::endl;
+            break;
+        }
         default:
             break;
-        }
+        };
 
-  
-  
+        notFirstGame = true;
 
-
-
+     } while (!startGame);
 
 
- //В нашей таверне вы можете не только приятно провести время за свои деньги, 
- // но и немного выпить за счёт заведения! Я вижу вас насквозь - у вас в кармане пусто, 
- // но наш бешеный кабанчик благосклонен к специалистам по выпивке! 
- // Теперь  Сначала вы с завязанными глазами должны узнать, сколько грамм я накапаю в стакан. 
- // Потом у вас будет только три секунды, чтобы сделать нужное количество глотков. 
- // Не бойся! Не больше десяти. Если не угадаешь, то получишь такую оплеуху от меня, что звездочки будут плясать джигу на твоём лбу! "
- //    
-//
+
+     //EndOfGame();
+
+     playSound("dopyuIbroshu.ogg");
+     std::this_thread::sleep_for(std::chrono::seconds(13));
+
 
 }
