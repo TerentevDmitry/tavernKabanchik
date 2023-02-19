@@ -139,6 +139,8 @@
     <ClInclude Include="endOfGame.h" />
     <ClInclude Include="mainTavern.h" />
     <ClInclude Include="miniaudio.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
     <ClInclude Include="theGame.h" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +162,7 @@
     <None Include="bar_ok_zasohnut.ogg" />
     <None Include="chok.ogg" />
     <None Include="kick.ogg" />
+    <None Include="likovanie.ogg" />
     <None Include="ready_for_game.ogg" />
     <None Include="tavern_sounds\bar_neg_fight.ogg" />
     <None Include="tavern_sounds\bar_neg_lucky.ogg" />
@@ -178,6 +181,14 @@
     <None Include="wine5.ogg" />
     <None Include="wine5_2.ogg" />
     <None Include="win_game.ogg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+    <ResourceCompile Include="tavern.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
+    <Image Include="x64\Debug\1588966660_banner3.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -16,3 +16,5 @@ enum class numberOfSipsSelection
 
 
 };
+
+void playSound(std::string sound_file_name);

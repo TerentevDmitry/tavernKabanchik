@@ -118,7 +118,7 @@ int main()
             
             
 
-            int tipeOfName = 0;
+            int tipeOfName = 0; 
 
             //игра
             if (nameOfSound == SoundsWine[0] || nameOfSound == SoundsWine[1])
@@ -158,13 +158,16 @@ int main()
 
             if (theGame(numberOfSips, tipeOfName))
             {
-                std::cout << "std::cout << Ого, ты угадал. << std::endl;" << std::endl;
+                //std::cout << "std::cout << Ого, ты угадал. << std::endl;" << std::endl;
                 playSound("win_game.ogg");
+                playSound("likovanie.ogg");
+
                 std::this_thread::sleep_for(std::chrono::seconds(5));
             }
             else
             {
                 std::cout << "Ну ты и лошара!" << std::endl;
+                playSound("ne_ugadal.ogg"); 
                 playSound("kick.ogg");
                 std::this_thread::sleep_for(std::chrono::seconds(3));
                 playSound(SoundsBarNeg[rand() % SoundsBarNegMassSize]);
@@ -183,7 +186,7 @@ int main()
             break;
         }
         default:
-            break;
+            return EXIT_FAILURE;
         };
 
         notFirstGame = true;
