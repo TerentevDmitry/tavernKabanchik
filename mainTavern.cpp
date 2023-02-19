@@ -158,8 +158,10 @@ int main()
 
             if (theGame(numberOfSips, tipeOfName))
             {
-                std::cout << "std::cout << Ого, ты угадал. << std::endl;" << std::endl;
+                //std::cout << "std::cout << Ого, ты угадал. << std::endl;" << std::endl;
                 playSound("win_game.ogg");
+                playSound("likovanie.ogg");
+
                 std::this_thread::sleep_for(std::chrono::seconds(5));
             }
             else
@@ -183,7 +185,7 @@ int main()
             break;
         }
         default:
-            break;
+            return EXIT_FAILURE;
         };
 
         notFirstGame = true;

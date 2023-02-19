@@ -15,6 +15,7 @@ bool EndOfGame(bool chooseChatWithBarman)
         std::cout << "1. ѕопробовать еще раз? (да/нет/не знаю)" << std::endl;
         std::cout << ">";
         std::getline(std::cin, endGame);
+        std::getline(std::cin, endGame);
 
         if (endGame != "да" && endGame != "нет" && endGame != "не знаю")
         {
