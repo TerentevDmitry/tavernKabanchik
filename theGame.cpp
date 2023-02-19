@@ -13,13 +13,36 @@ void menuFirstSelection(int* menuSelection)
 
 
 
-void theGame(int* numberOfSips)
+//bool winGameOrNot(int numberOfSips, int tipeOfName)
+//{
+//	
+//	
+//	if (numberOfSips == tipeOfName)
+//	{
+//		return true;
+//	}
+//	else
+//	{
+//		return false;
+//	}
+//	
+//};
+
+bool theGame(int numberOfSips, int tipeOfName)
 {
+	std::cout << "А теперь угадай количество глотков..." << std::endl;
+	std::cout << "> ";
+	std::cin >> numberOfSips;
 
-
-
-	std::cout << '>';
-
-
+	if (numberOfSips == tipeOfName)
+	{
+		std::cout << "Ого, ты угадал." << std::endl;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	
 
 };

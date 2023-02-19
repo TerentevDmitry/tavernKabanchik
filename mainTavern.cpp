@@ -56,7 +56,7 @@ int main()
 
     int menuSelection = 0; // ds,jh gj vty.
     int numberOfSips = 0; // количество глотков
-    bool startGame = false; //
+    bool chooseChatWithBarman = false; //
     bool notFirstGame = false; //не первый проход по меню
 
 
@@ -97,6 +97,7 @@ int main()
             std::this_thread::sleep_for(std::chrono::seconds(5));
         };
 
+        chooseChatWithBarman = false;
         menuFirstSelection(&menuSelection);
     
         switch (menuSelection)
@@ -107,29 +108,69 @@ int main()
             playSound("ready_for_game.ogg");
             std::this_thread::sleep_for(std::chrono::seconds(2));
             
-            std::cout << "Угадай количество глотков" << std::endl;
+            std::cout << "Ну, готов угадывать количество глотков?" << std::endl;
+            //std::cin.get();
+            
+            std::string nameOfSound = SoundsWine[rand() % SoundsWineMassSize];
+            playSound(nameOfSound);
+
             
             
-            std::string xxx = SoundsWine[rand() % SoundsWineMassSize];
-
-            std::cout << xxx << std::endl;
-
             
 
-            playSound(xxx);
+            int tipeOfName = 0;
 
-            //std::cout << SoundsWine[rand() % SoundsWineMassSize] << std::endl;
+            //игра
+            if (nameOfSound == SoundsWine[0] || nameOfSound == SoundsWine[1])
+            {
+                tipeOfName = static_cast<int> (numberOfSipsSelection::oneSip);
+                std::this_thread::sleep_for(std::chrono::seconds(1));
 
+            }
+            else if (nameOfSound == SoundsWine[2] || nameOfSound == SoundsWine[3])
+            {
+                tipeOfName = static_cast<int> (numberOfSipsSelection::twoSip);
+                std::this_thread::sleep_for(std::chrono::seconds(2));
+            }
+            else if (nameOfSound == SoundsWine[4] || nameOfSound == SoundsWine[5])
+            {
+                tipeOfName = static_cast<int> (numberOfSipsSelection::threeSip);
+                std::this_thread::sleep_for(std::chrono::seconds(3));
+            }
+            else if (nameOfSound == SoundsWine[6] || nameOfSound == SoundsWine[7])
+            {
+                tipeOfName = static_cast<int> (numberOfSipsSelection::fiveSip);
+                std::this_thread::sleep_for(std::chrono::seconds(5));
+            }
+            else if (nameOfSound == SoundsWine[8] || nameOfSound == SoundsWine[9])
+            {
+                tipeOfName = static_cast<int> (numberOfSipsSelection::tenSip);
+                std::this_thread::sleep_for(std::chrono::seconds(10));
+            }
+            else 
+            {
+                tipeOfName = static_cast<int> (numberOfSipsSelection::losing);
+                std::cout << "Сделал какую-то дичь..." << std::endl;
 
-            //if (rand() % SoundsBarLongMassSize == SoundsBarLong[0])
-            std::this_thread::sleep_for(std::chrono::seconds(1));
+                playSound(SoundsBarNeg[rand() % SoundsBarNegMassSize]);
+                std::this_thread::sleep_for(std::chrono::seconds(5));
+            }
 
-            //0x00007ff69e9d888a {tavern.exe!rand}
+            if (theGame(numberOfSips, tipeOfName))
+            {
+                std::cout << "std::cout << Ого, ты угадал. << std::endl;" << std::endl;
+                playSound("win_game.ogg");
+                std::this_thread::sleep_for(std::chrono::seconds(5));
+            }
+            else
+            {
+                std::cout << "Ну ты и лошара!" << std::endl;
+                playSound("kick.ogg");
+                std::this_thread::sleep_for(std::chrono::seconds(3));
+                playSound(SoundsBarNeg[rand() % SoundsBarNegMassSize]);
+                std::this_thread::sleep_for(std::chrono::seconds(5));
+            }
 
-
-            //theGame(&numberOfSips);
-
-            
             std::cout << "Таверна бешеный кабанчик. Игра закончилась!" << std::endl;
             break;
         }
@@ -138,6 +179,7 @@ int main()
             playSound(SoundsBarLong[rand() % SoundsBarLongMassSize]);
             chatWithBarman(&menuSelection);
             std::cout << std::endl;
+            chooseChatWithBarman = true;
             break;
         }
         default:
@@ -146,7 +188,14 @@ int main()
 
         notFirstGame = true;
 
-     } while (!startGame);
+
+        //EndOfGame(chooseChatWithBarman);
+
+
+
+
+
+     } while (!EndOfGame(chooseChatWithBarman));
 
 
 

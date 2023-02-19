@@ -5,7 +5,12 @@
 #include <chrono> //для ожидания в секундах
 
 
-void theGame(int* numberOfSips);
+bool theGame(int numberOfSips, int tipeOfName);
+
+//bool winGameOrNot(int numberOfSips, int tipeOfName);
+
+
+
 
 void menuFirstSelection(int* menuSelection);
 

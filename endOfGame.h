@@ -5,5 +5,5 @@
 #include <chrono> //для ожидания в секундах
 
 
-bool EndOfGame();
+bool EndOfGame(bool chooseChatWithBarman);
 

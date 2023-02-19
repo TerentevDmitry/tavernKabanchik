@@ -159,6 +159,7 @@
     <None Include="bar_ok_with_pleasure.ogg" />
     <None Include="bar_ok_zasohnut.ogg" />
     <None Include="chok.ogg" />
+    <None Include="kick.ogg" />
     <None Include="ready_for_game.ogg" />
     <None Include="tavern_sounds\bar_neg_fight.ogg" />
     <None Include="tavern_sounds\bar_neg_lucky.ogg" />
@@ -176,6 +177,7 @@
     <None Include="wine3_2.ogg" />
     <None Include="wine5.ogg" />
     <None Include="wine5_2.ogg" />
+    <None Include="win_game.ogg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

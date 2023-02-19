@@ -151,5 +151,11 @@
     <None Include="ready_for_game.ogg">
       <Filter>Файлы ресурсов</Filter>
     </None>
+    <None Include="win_game.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="kick.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
 </Project>
