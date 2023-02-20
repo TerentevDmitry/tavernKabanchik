@@ -4,18 +4,6 @@
 #include <thread> //для доступа к текущему потоку
 #include <chrono> //для ожидания в секундах
 
-
 bool theGame(int numberOfSips, int tipeOfName);
 
-//bool winGameOrNot(int numberOfSips, int tipeOfName);
-
-
-
-
 void menuFirstSelection(int* menuSelection);
-
-
-
-
-
-

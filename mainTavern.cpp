@@ -48,13 +48,17 @@ int main()
     setlocale(LC_ALL, "Russian"); //Корректное отображение Кириллицы
     system("chcp 1251");
 
+    std::cout << "version 0.1 \t";
+    std::cout << "DTer" << std::endl;
+
+
     //Попытка инициализации звука
     if (!initSound())
     {
         return EXIT_FAILURE;
     }
 
-    int menuSelection = 0; // ds,jh gj vty.
+    int menuSelection = 0; 
     int numberOfSips = 0; // количество глотков
     bool chooseChatWithBarman = false; //
     bool notFirstGame = false; //не первый проход по меню
@@ -174,12 +178,12 @@ int main()
                 std::this_thread::sleep_for(std::chrono::seconds(5));
             }
 
-            std::cout << "Таверна бешеный кабанчик. Игра закончилась!" << std::endl;
+            //std::cout << "Таверна бешеный кабанчик. Игра закончилась!" << std::endl;
             break;
         }
         case static_cast <int> (MenuSelection::chatWithBarman):
         {
-            playSound(SoundsBarLong[rand() % SoundsBarLongMassSize]);
+            //playSound(SoundsBarLong[rand() % SoundsBarLongMassSize]);
             chatWithBarman(&menuSelection);
             std::cout << std::endl;
             chooseChatWithBarman = true;

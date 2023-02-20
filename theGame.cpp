@@ -20,26 +20,7 @@ void menuFirstSelection(int* menuSelection)
 			std::cin >> *menuSelection;
 		};
 	};
-
-	
 }
-
-
-
-//bool winGameOrNot(int numberOfSips, int tipeOfName)
-//{
-//	
-//	
-//	if (numberOfSips == tipeOfName)
-//	{
-//		return true;
-//	}
-//	else
-//	{
-//		return false;
-//	}
-//	
-//};
 
 bool theGame(int numberOfSips, int tipeOfName)
 {
@@ -47,7 +28,6 @@ bool theGame(int numberOfSips, int tipeOfName)
 	std::cout << "> ";
 	std::cin >> numberOfSips;
 
-	
 		while (!std::cin.good())
 		{
 			std::cin.clear();
@@ -56,8 +36,6 @@ bool theGame(int numberOfSips, int tipeOfName)
 			std::cout << "> ";
 			std::cin >> numberOfSips;
 		};
-
-
 
 	if (numberOfSips == tipeOfName)
 	{
@@ -68,6 +46,4 @@ bool theGame(int numberOfSips, int tipeOfName)
 	{
 		return false;
 	}
-	
-
 };

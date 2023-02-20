@@ -9,34 +9,31 @@ bool EndOfGame(bool chooseChatWithBarman)
     }
     else
     {
+        int endGame;
 
-
-        std::string endGame;
-
-        std::cout << "1. Попробовать еще раз? (да/нет/не знаю)" << std::endl;
+        std::cout << "1. Попробовать еще раз? (1.Да / 2.Нет / 3.Не знаю)" << std::endl;
         std::cout << ">";
-        std::getline(std::cin, endGame);
-        std::getline(std::cin, endGame);
-
-        if (endGame != "да" && endGame != "нет" && endGame != "не знаю")
+        std::cin >> endGame;
+        //chooseEndOfGame
+        if (endGame != static_cast<int> (chooseEndOfGame::yes) && endGame != static_cast<int> (chooseEndOfGame::no) && endGame != static_cast<int> (chooseEndOfGame::dontKnow))
         {
             do
             {
                 std::cout << "Вы выбрали неверное действие. Выберите верное действие: ";
                 std::cout << "> ";
-                std::getline(std::cin, endGame);
-            } while (!(endGame == "да" || endGame == "нет" || endGame == "не знаю"));
+                std::cin >> endGame;
+            } while (!(endGame == static_cast<int> (chooseEndOfGame::yes) || endGame == endGame != static_cast<int> (chooseEndOfGame::no) || endGame == static_cast<int> (chooseEndOfGame::dontKnow)));
         };
 
-        if (endGame == "нет")
+        if (endGame == static_cast<int> (chooseEndOfGame::no))
         {
             return true;
         }
-        else if (endGame == "да")
+        else if (endGame == static_cast<int> (chooseEndOfGame::yes))
         {
             return false;
         }
-        else if (endGame == "не знаю")
+        else if (endGame == static_cast<int> (chooseEndOfGame::dontKnow))
         {
             std::cout << "И что, ты меня оставишь одного? Давай играть, не нуди! " << std::endl;
             playSound("nado_fedya_nado.ogg");
