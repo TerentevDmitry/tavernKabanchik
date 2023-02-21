@@ -7,3 +7,4 @@
 
 bool EndOfGame(bool chooseChatWithBarman);
 
+bool oneMoreTime();

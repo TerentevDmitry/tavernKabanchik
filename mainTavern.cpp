@@ -48,7 +48,7 @@ int main()
     setlocale(LC_ALL, "Russian"); //Корректное отображение Кириллицы
     system("chcp 1251");
 
-    std::cout << "version 0.1 \t";
+    std::cout << "version 1.0 \t";
     std::cout << "DTer" << std::endl;
 
 
@@ -185,7 +185,7 @@ int main()
                 }
 
             //std::cout << "Таверна бешеный кабанчик. Игра закончилась!" << std::endl;
-            } while (oneMoreTime());
+            } while (!oneMoreTime());
 
 
             break;

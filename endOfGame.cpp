@@ -9,20 +9,20 @@ bool EndOfGame(bool chooseChatWithBarman)
     }
     else
     {
-        int endGame;
+        int endGame = 0;
 
-        std::cout << "1. Попробовать еще раз? (1.Да / 2.Нет / 3.Не знаю)" << std::endl;
+        std::cout << "1. Может всё-таки еще посидим?? (1.Да / 2.Нет)" << std::endl;
         std::cout << ">";
         std::cin >> endGame;
         //chooseEndOfGame
-        if (endGame != static_cast<int> (chooseEndOfGame::yes) && endGame != static_cast<int> (chooseEndOfGame::no) && endGame != static_cast<int> (chooseEndOfGame::dontKnow))
+        if (endGame != static_cast<int> (chooseEndOfGame::yes) && endGame != static_cast<int> (chooseEndOfGame::no) /*&& endGame != static_cast<int> (chooseEndOfGame::dontKnow)*/)
         {
             do
             {
                 std::cout << "Вы выбрали неверное действие. Выберите верное действие: ";
                 std::cout << "> ";
                 std::cin >> endGame;
-            } while (!(endGame == static_cast<int> (chooseEndOfGame::yes) || endGame == static_cast<int> (chooseEndOfGame::no) || endGame == static_cast<int> (chooseEndOfGame::dontKnow)));
+            } while (!(endGame == static_cast<int> (chooseEndOfGame::yes) || endGame == static_cast<int> (chooseEndOfGame::no) /*|| endGame == static_cast<int> (chooseEndOfGame::dontKnow)*/));
         };
 
         if (endGame == static_cast<int> (chooseEndOfGame::no))
@@ -33,15 +33,15 @@ bool EndOfGame(bool chooseChatWithBarman)
         {
             return false;
         }
-        else if (endGame == static_cast<int> (chooseEndOfGame::dontKnow))
-        {
-            std::cout << "И что, ты меня оставишь одного? Давай играть, не нуди! " << std::endl;
-            playSound("nado_fedya_nado.ogg");
-            std::this_thread::sleep_for(std::chrono::seconds(3));
+        //else if (endGame == static_cast<int> (chooseEndOfGame::dontKnow))
+        //{
+        //    std::cout << "И что, ты меня оставишь одного? Давай играть, не нуди! " << std::endl;
+        //    playSound("nado_fedya_nado.ogg");
+        //    std::this_thread::sleep_for(std::chrono::seconds(4));
 
-            
-            return false;
-        }
+        //    
+        //    return false;
+        //}
         else
         {
             std::cout << "Errore in bool EndOfGame()" << std::endl;
@@ -52,3 +52,45 @@ bool EndOfGame(bool chooseChatWithBarman)
     
     
 }
+
+bool oneMoreTime()
+{
+    int moreTime = 0;
+
+    std::cout << "1. Давай еще разок? (1.Да / 2.Нет / 3.Не знаю)" << std::endl;
+    std::cout << ">";
+    std::cin >> moreTime;
+    //chooseEndOfGame
+    if (moreTime != static_cast<int> (chooseEndOfGame::yes) && moreTime != static_cast<int> (chooseEndOfGame::no) && moreTime != static_cast<int> (chooseEndOfGame::dontKnow))
+    {
+        do
+        {
+            std::cout << "Вы выбрали неверное действие. Выберите верное действие: ";
+            std::cout << "> ";
+            std::cin >> moreTime;
+        } while (!(moreTime == static_cast<int> (chooseEndOfGame::yes) || moreTime == static_cast<int> (chooseEndOfGame::no) || moreTime == static_cast<int> (chooseEndOfGame::dontKnow)));
+    };
+
+    if (moreTime == static_cast<int> (chooseEndOfGame::no))
+    {
+        return true;
+    }
+    else if (moreTime == static_cast<int> (chooseEndOfGame::yes))
+    {
+        return false;
+    }
+    else if (moreTime == static_cast<int> (chooseEndOfGame::dontKnow))
+    {
+        std::cout << "И что, ты меня оставишь одного? Давай играть, не нуди! " << std::endl;
+        playSound("nado_fedya_nado.ogg");
+        std::this_thread::sleep_for(std::chrono::seconds(4));
+
+
+        return false;
+    }
+    else
+    {
+        std::cout << "Errore in bool EndOfGame()" << std::endl;
+        return false;
+    }
+};
