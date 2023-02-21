@@ -130,7 +130,6 @@
   <ItemGroup>
     <ClCompile Include="chatWithBarman.cpp" />
     <ClCompile Include="endOfGame.cpp" />
-    <ClCompile Include="printMenu.cpp" />
     <ClCompile Include="theGame.cpp" />
     <ClCompile Include="mainTavern.cpp" />
   </ItemGroup>
@@ -181,6 +180,7 @@
     <None Include="wine5.ogg" />
     <None Include="wine5_2.ogg" />
     <None Include="win_game.ogg" />
+    <None Include="x64\Debug\privetikr.ogg" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Resource.rc" />

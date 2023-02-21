@@ -92,13 +92,17 @@ int main()
         std::this_thread::sleep_for(std::chrono::seconds(1));
     };
     
-
     do
      {   
         if (!notFirstGame)
         {
             playSound(SoundsBarLong[rand() % SoundsBarLongMassSize]);
-            std::this_thread::sleep_for(std::chrono::seconds(5));
+            std::this_thread::sleep_for(std::chrono::seconds(8));
+            //std::this_thread::sleep_for(std::chrono::seconds(1));
+            std::cout << "Разрешите представить - это наша красавица, Светлана! Первая леди нашего заведения.";
+            std::cout << "Она будет тебя подбадривать всю игру! " << std::endl;
+            playSound("privetikr.ogg");
+            std::this_thread::sleep_for(std::chrono::seconds(2));
         };
 
         chooseChatWithBarman = false;
@@ -109,6 +113,9 @@ int main()
         case static_cast <int> (MenuSelection::startTheGame):
         {
             std::cout << "Таверна бешеный кабанчик. Игра начинается!" << std::endl;
+            
+            
+            
             playSound("ready_for_game.ogg");
             std::this_thread::sleep_for(std::chrono::seconds(2));
             
@@ -163,10 +170,12 @@ int main()
             if (theGame(numberOfSips, tipeOfName))
             {
                 //std::cout << "std::cout << Ого, ты угадал. << std::endl;" << std::endl;
+                playSound("ty_mne_nrav.ogg");
+                std::this_thread::sleep_for(std::chrono::seconds(2));
                 playSound("win_game.ogg");
                 playSound("likovanie.ogg");
-
                 std::this_thread::sleep_for(std::chrono::seconds(5));
+                
             }
             else
             {
@@ -175,7 +184,7 @@ int main()
                 playSound("kick.ogg");
                 std::this_thread::sleep_for(std::chrono::seconds(3));
                 playSound(SoundsBarNeg[rand() % SoundsBarNegMassSize]);
-                std::this_thread::sleep_for(std::chrono::seconds(5));
+                std::this_thread::sleep_for(std::chrono::seconds(3));
             }
 
             //std::cout << "Таверна бешеный кабанчик. Игра закончилась!" << std::endl;
@@ -209,7 +218,7 @@ int main()
      //EndOfGame();
 
      playSound("dopyuIbroshu.ogg");
-     std::this_thread::sleep_for(std::chrono::seconds(13));
+     std::this_thread::sleep_for(std::chrono::seconds(7));
 
 
 }

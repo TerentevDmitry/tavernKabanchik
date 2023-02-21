@@ -22,7 +22,7 @@ bool EndOfGame(bool chooseChatWithBarman)
                 std::cout << "Вы выбрали неверное действие. Выберите верное действие: ";
                 std::cout << "> ";
                 std::cin >> endGame;
-            } while (!(endGame == static_cast<int> (chooseEndOfGame::yes) || endGame == endGame != static_cast<int> (chooseEndOfGame::no) || endGame == static_cast<int> (chooseEndOfGame::dontKnow)));
+            } while (!(endGame == static_cast<int> (chooseEndOfGame::yes) || endGame == static_cast<int> (chooseEndOfGame::no) || endGame == static_cast<int> (chooseEndOfGame::dontKnow)));
         };
 
         if (endGame == static_cast<int> (chooseEndOfGame::no))
@@ -45,8 +45,10 @@ bool EndOfGame(bool chooseChatWithBarman)
         else
         {
             std::cout << "Errore in bool EndOfGame()" << std::endl;
-
+            return false;
         }
     };
+
+    
     
 }

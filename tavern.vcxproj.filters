@@ -21,9 +21,6 @@
     <ClCompile Include="theGame.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="printMenu.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="chatWithBarman.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
@@ -164,6 +161,9 @@
       <Filter>Файлы ресурсов</Filter>
     </None>
     <None Include="likovanie.ogg">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="x64\Debug\privetikr.ogg">
       <Filter>Файлы ресурсов</Filter>
     </None>
   </ItemGroup>
