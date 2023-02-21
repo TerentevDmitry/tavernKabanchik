@@ -97,7 +97,7 @@ int main()
         if (!notFirstGame)
         {
             playSound(SoundsBarLong[rand() % SoundsBarLongMassSize]);
-            std::this_thread::sleep_for(std::chrono::seconds(8));
+            std::this_thread::sleep_for(std::chrono::seconds(6));
             //std::this_thread::sleep_for(std::chrono::seconds(1));
             std::cout << "Разрешите представить - это наша красавица, Светлана! Первая леди нашего заведения.";
             std::cout << "Она будет тебя подбадривать всю игру! " << std::endl;
@@ -112,82 +112,82 @@ int main()
         {
         case static_cast <int> (MenuSelection::startTheGame):
         {
-            std::cout << "Таверна бешеный кабанчик. Игра начинается!" << std::endl;
-            
-            
-            
-            playSound("ready_for_game.ogg");
-            std::this_thread::sleep_for(std::chrono::seconds(2));
-            
-            std::cout << "Ну, готов угадывать количество глотков?" << std::endl;
-            //std::cin.get();
-            
-            std::string nameOfSound = SoundsWine[rand() % SoundsWineMassSize];
-            playSound(nameOfSound);
 
-            
-            
-            
-
-            int tipeOfName = 0; 
-
-            //игра
-            if (nameOfSound == SoundsWine[0] || nameOfSound == SoundsWine[1])
+            do
             {
-                tipeOfName = static_cast<int> (numberOfSipsSelection::oneSip);
-                std::this_thread::sleep_for(std::chrono::seconds(1));
-
-            }
-            else if (nameOfSound == SoundsWine[2] || nameOfSound == SoundsWine[3])
-            {
-                tipeOfName = static_cast<int> (numberOfSipsSelection::twoSip);
+                std::cout << "Таверна бешеный кабанчик. Игра начинается!" << std::endl;
+            
+                playSound("ready_for_game.ogg");
                 std::this_thread::sleep_for(std::chrono::seconds(2));
-            }
-            else if (nameOfSound == SoundsWine[4] || nameOfSound == SoundsWine[5])
-            {
-                tipeOfName = static_cast<int> (numberOfSipsSelection::threeSip);
-                std::this_thread::sleep_for(std::chrono::seconds(3));
-            }
-            else if (nameOfSound == SoundsWine[6] || nameOfSound == SoundsWine[7])
-            {
-                tipeOfName = static_cast<int> (numberOfSipsSelection::fiveSip);
-                std::this_thread::sleep_for(std::chrono::seconds(5));
-            }
-            else if (nameOfSound == SoundsWine[8] || nameOfSound == SoundsWine[9])
-            {
-                tipeOfName = static_cast<int> (numberOfSipsSelection::tenSip);
-                std::this_thread::sleep_for(std::chrono::seconds(10));
-            }
-            else 
-            {
-                tipeOfName = static_cast<int> (numberOfSipsSelection::losing);
-                std::cout << "Сделал какую-то дичь..." << std::endl;
+            
+                std::cout << "Ну, готов угадывать количество глотков?" << std::endl;
+                //std::cin.get();
+            
+                std::string nameOfSound = SoundsWine[rand() % SoundsWineMassSize];
+                playSound(nameOfSound);
 
-                playSound(SoundsBarNeg[rand() % SoundsBarNegMassSize]);
-                std::this_thread::sleep_for(std::chrono::seconds(5));
-            }
+                int tipeOfName = 0; 
 
-            if (theGame(numberOfSips, tipeOfName))
-            {
-                //std::cout << "std::cout << Ого, ты угадал. << std::endl;" << std::endl;
-                playSound("ty_mne_nrav.ogg");
-                std::this_thread::sleep_for(std::chrono::seconds(2));
-                playSound("win_game.ogg");
-                playSound("likovanie.ogg");
-                std::this_thread::sleep_for(std::chrono::seconds(5));
+                //игра
+                if (nameOfSound == SoundsWine[0] || nameOfSound == SoundsWine[1])
+                {
+                    tipeOfName = static_cast<int> (numberOfSipsSelection::oneSip);
+                    std::this_thread::sleep_for(std::chrono::seconds(1));
+
+                }
+                else if (nameOfSound == SoundsWine[2] || nameOfSound == SoundsWine[3])
+                {
+                    tipeOfName = static_cast<int> (numberOfSipsSelection::twoSip);
+                    std::this_thread::sleep_for(std::chrono::seconds(2));
+                }
+                else if (nameOfSound == SoundsWine[4] || nameOfSound == SoundsWine[5])
+                {
+                    tipeOfName = static_cast<int> (numberOfSipsSelection::threeSip);
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                }
+                else if (nameOfSound == SoundsWine[6] || nameOfSound == SoundsWine[7])
+                {
+                    tipeOfName = static_cast<int> (numberOfSipsSelection::fiveSip);
+                    std::this_thread::sleep_for(std::chrono::seconds(5));
+                }
+                else if (nameOfSound == SoundsWine[8] || nameOfSound == SoundsWine[9])
+                {
+                    tipeOfName = static_cast<int> (numberOfSipsSelection::tenSip);
+                    std::this_thread::sleep_for(std::chrono::seconds(10));
+                }
+                else 
+                {
+                    tipeOfName = static_cast<int> (numberOfSipsSelection::losing);
+                    std::cout << "Сделал какую-то дичь..." << std::endl;
+
+                    playSound(SoundsBarNeg[rand() % SoundsBarNegMassSize]);
+                    std::this_thread::sleep_for(std::chrono::seconds(5));
+                }
+
+                if (theGame(numberOfSips, tipeOfName))
+                {
+                    //std::cout << "std::cout << Ого, ты угадал. << std::endl;" << std::endl;
+                    playSound("ty_mne_nrav.ogg");
+                    std::this_thread::sleep_for(std::chrono::seconds(2));
+                    playSound("win_game.ogg");
+                    playSound("likovanie.ogg");
+                    std::this_thread::sleep_for(std::chrono::seconds(5));
                 
-            }
-            else
-            {
-                std::cout << "Ну ты и лошара!" << std::endl;
-                playSound("ne_ugadal.ogg"); 
-                playSound("kick.ogg");
-                std::this_thread::sleep_for(std::chrono::seconds(3));
-                playSound(SoundsBarNeg[rand() % SoundsBarNegMassSize]);
-                std::this_thread::sleep_for(std::chrono::seconds(3));
-            }
+                }
+                else
+                {
+                    std::cout << "Ну ты и лошара!" << std::endl;
+                    playSound("ne_ugadal.ogg"); 
+                    playSound("kick.ogg");
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                    playSound(SoundsBarNeg[rand() % SoundsBarNegMassSize]);
+                    std::this_thread::sleep_for(std::chrono::seconds(3));
+                }
 
             //std::cout << "Таверна бешеный кабанчик. Игра закончилась!" << std::endl;
+            } while (oneMoreTime());
+
+
             break;
         }
         case static_cast <int> (MenuSelection::chatWithBarman):
