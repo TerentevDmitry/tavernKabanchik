@@ -61,7 +61,7 @@ int main()
     int menuSelection = 0; 
     int numberOfSips = 0; // количество глотков
     bool chooseChatWithBarman = false; //
-    bool notFirstGame = false; //не первый проход по меню
+    //bool notFirstGame = false; //не первый проход по меню
 
 
     const int SoundsWineMassSize = 10; // музыка для игры
@@ -94,16 +94,16 @@ int main()
     
     do
      {   
-        if (!notFirstGame)
-        {
-            playSound(SoundsBarLong[rand() % SoundsBarLongMassSize]);
-            std::this_thread::sleep_for(std::chrono::seconds(6));
+        //if (!notFirstGame)
+        //{
+            //playSound(SoundsBarLong[rand() % SoundsBarLongMassSize]);
+            //std::this_thread::sleep_for(std::chrono::seconds(6));
             //std::this_thread::sleep_for(std::chrono::seconds(1));
-            std::cout << "Разрешите представить - это наша красавица, Светлана! Первая леди нашего заведения.";
-            std::cout << "Она будет тебя подбадривать всю игру! " << std::endl;
-            playSound("privetikr.ogg");
-            std::this_thread::sleep_for(std::chrono::seconds(2));
-        };
+            //std::cout << "Разрешите представить - это наша красавица, Светлана! Первая леди нашего заведения.";
+            //std::cout << "Она будет тебя подбадривать всю игру! " << std::endl;
+            //playSound("privetikr.ogg");
+            //std::this_thread::sleep_for(std::chrono::seconds(2));
+        //};
 
         chooseChatWithBarman = false;
         menuFirstSelection(&menuSelection);
@@ -202,7 +202,7 @@ int main()
             return EXIT_FAILURE;
         };
 
-        notFirstGame = true;
+        //notFirstGame = true;
 
 
         //EndOfGame(chooseChatWithBarman);
